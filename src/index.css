@@ -1,0 +1,142 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply font-sans text-gray-800 antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-medium text-navy-900;
+  }
+}
+
+@layer components {
+  .nav-link {
+    @apply text-gray-700 hover:text-yellow-500 font-medium transition-colors relative inline-flex items-center;
+  }
+  
+  .nav-link::after {
+    content: '';
+    @apply absolute left-0 bottom-[-2px] h-[2px] w-0 bg-yellow-500 transition-all duration-300;
+  }
+  
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+  
+  .mobile-nav-link {
+    @apply text-gray-700 hover:text-yellow-500 font-medium py-2 px-3 rounded-md hover:bg-gray-50 transition-colors block w-full;
+  }
+  
+  .icon-button {
+    @apply p-2 text-gray-700 hover:text-yellow-500 rounded-full hover:bg-gray-100 transition-colors;
+  }
+  
+  .btn {
+    @apply px-4 py-2 rounded-md font-medium transition-all duration-200 inline-flex items-center justify-center;
+  }
+  
+  .btn-primary {
+    @apply bg-yellow-500 hover:bg-yellow-600 text-navy-900 shadow-sm hover:shadow transform hover:scale-105;
+  }
+  
+  .btn-secondary {
+    @apply bg-navy-900 hover:bg-navy-800 text-white shadow-sm hover:shadow transform hover:scale-105;
+  }
+  
+  .btn-outline {
+    @apply border border-gray-300 hover:border-yellow-500 hover:bg-yellow-50 text-gray-700 hover:text-yellow-600 transform hover:scale-105;
+  }
+  
+  .card {
+    @apply bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow p-4;
+  }
+  
+  .product-card {
+    @apply card overflow-hidden flex flex-col h-full transform transition-all duration-300 hover:scale-105;
+  }
+  
+  .product-card-img-wrapper {
+    @apply h-48 sm:h-56 overflow-hidden rounded-md mb-3 relative;
+  }
+  
+  .product-card-img {
+    @apply w-full h-full object-cover transform transition-transform duration-500;
+  }
+  
+  .product-card:hover .product-card-img {
+    @apply scale-110;
+  }
+  
+  .badge {
+    @apply px-2 py-1 text-xs rounded-full font-medium;
+  }
+  
+  .badge-sale {
+    @apply bg-red-100 text-red-800;
+  }
+  
+  .badge-new {
+    @apply bg-green-100 text-green-800;
+  }
+  
+  .badge-refurbished {
+    @apply bg-blue-100 text-blue-800;
+  }
+  
+  .condition-badge {
+    @apply rounded-md px-2 py-1 text-xs font-bold inline-flex items-center;
+  }
+  
+  .condition-excellent {
+    @apply bg-green-100 text-green-800;
+  }
+  
+  .condition-good {
+    @apply bg-blue-100 text-blue-800;
+  }
+  
+  .condition-fair {
+    @apply bg-yellow-100 text-yellow-800;
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .animate-slide-in-right {
+    animation: slideInRight 0.3s ease-in-out;
+  }
+  
+  @keyframes slideInRight {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
+  }
+  
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Custom Animations */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
